@@ -1536,6 +1536,12 @@ config SENSORS_MC13783_ADC
         depends on MFD_MC13XXX
         help
           Support for the A/D converter on MC13783 and MC13892 PMIC.
+          
+config SENSORS_HTS221
+	tristate "ST HTS221 Humidity & Temperature sensor."
+	depends on GPIOLIB
+	help
+	Support for the HTS221 Humidity & Temperature sensor.
 
 config SENSORS_POKUS
 	tristate "JFíla pokus driver."
