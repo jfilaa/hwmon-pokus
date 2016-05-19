@@ -289,6 +289,20 @@ endef
 
 $(eval $(call KernelPackage,hwmon-gpiofan))
 
+define KernelPackage/hwmon-hts221
+  TITLE:=ST HTS221 Humidity & Temperature sensor.
+  KCONFIG:=CONFIG_SENSORS_HTS221
+  FILES:=$(LINUX_DIR)/drivers/hwmon/hts221.ko
+  AUTOLOAD:=$(call AutoProbe,hts221)
+  $(call AddDepends/hwmon,+kmod-i2c-core)
+endef
+
+define KernelPackage/hwmon-hts221/description
+ Kernel module for the HTS221 Humidity & Temperature sensor.
+endef
+
+$(eval $(call KernelPackage,hwmon-hts221))
+
 define KernelPackage/hwmon-pokus
   TITLE:=pokus device for test
   KCONFIG:=CONFIG_SENSORS_POKUS
